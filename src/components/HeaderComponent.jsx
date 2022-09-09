@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 import FireComponents from './FireComponents'
 import PersonsComponent from './PersonsComponent'
 import Home from './Home'
@@ -22,21 +22,12 @@ export default function Header() {
             </form>
         </nav>
 
-        <Switch>
-        <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/fire">
-            <FireComponents />
-          </Route>
-          <Route path="/children">
-            <ChildrenComponent />
-          </Route>
-          <Route path="/persons">
-            <PersonsComponent />
-          </Route>
-          
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route path="/fire" element={<FireComponents />}/>
+          <Route path="/children" element={<ChildrenComponent />}/>
+          <Route path="/persons"element={<PersonsComponent />}/>
+        </Routes>
       </div>
     </Router>
   );
